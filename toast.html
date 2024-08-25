@@ -14,12 +14,25 @@
     <script>
         let btn = document.querySelector(".click-toast");
         let viewToast = document.querySelector(".view-toast");
+        let toastClick;
+        let toastLeave;
         btn.addEventListener("click", () => {
           viewToast.style.display = "block";
-          setTimeout(() => {
+          toastClick = setTimeout(() => {
+            viewToast.style.display = "none";
+          }, 5000); 
+            
+        });
+        viewToast.addEventListener("mouseenter", ()=>{
+          clearTimeout(toastClick); 
+          clearTimeout(toastLeave); 
+        })
+        viewToast.addEventListener("mouseleave", ()=>{
+          toastLeave = setTimeout(() => {
             viewToast.style.display = "none";
           }, 5000);
-        });
+        })
+      
         </script>
     
 </body>
