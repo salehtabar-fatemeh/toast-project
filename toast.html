@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toast</title>
+    <link rel="stylesheet" href="general.css">
+    
 </head>
 <body>
     <button class="click-toast">click for show toast</button>
 
     <div class="view-toast">welcome to my project</div>
-
+    <script>
+        let btn = document.querySelector(".click-toast");
+        let viewToast = document.querySelector(".view-toast");
+        btn.addEventListener("click", () => {
+          viewToast.style.display = "block";
+          setTimeout(() => {
+            viewToast.style.display = "none";
+          }, 5000);
+        });
+        </script>
     
 </body>
 </html>
