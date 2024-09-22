@@ -8,12 +8,22 @@
     
 </head>
 <body>
-    <button class="click-toast">click for show toast</button>
+    <div class="click-toast">click for show toast
+      <div class="view-toast">welcome to my project1</div>
+    </div>
 
-    <div class="view-toast">welcome to my project</div>
+    <div class="click-toast">click for show toast
+      <div class="view-toast">welcome to my project2</div>
+    </div>
+    
+    <div class="click-toast">click for show toast
+      <div class="view-toast">welcome to my project3</div>
+    </div>
+
+    
     <script>
-        let btn = document.querySelector(".click-toast");
-        let viewToast = document.querySelector(".view-toast");
+        const clickToast = document.querySelectorAll(".click-toast");
+        const viewToast = document.querySelectorAll(".view-toast");
         let toastClick;
         let toastLeave;
         btn.addEventListener("click", () => {
