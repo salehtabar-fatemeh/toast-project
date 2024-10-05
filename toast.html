@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Toast</title>
-    <link rel="stylesheet" href="general.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast</title>
+  <link rel="stylesheet" href="general.css">
+</head>
+
+<body>
+  <div class="show-toast">
     <div class="click-toast">
       click for show toast
       <div class="view-toast">welcome to my project1</div>
     </div>
 
-    <div class="click-toast">
-      click for show toast
-      <div class="view-toast">welcome to my project2</div>
+    <div class="show-toast">
+      <div class="click-toast">
+        click for show toast
+        <div class="view-toast" style="right: 10px;
+           bottom: 90px;">welcome to my project2</div>
+      </div>
     </div>
 
-    <script>
-      const clickToasts = document.querySelectorAll(".click-toast");
-      const viewToasts = document.querySelectorAll(".view-toast");
 
-      for (let i = 0; i < clickToasts.length; i++) {
-        clickToasts[i].addEventListener("click", () => {
-          viewToasts[i].style.display = "block";
-          let toastClick = setTimeout(() => {
-            viewToasts[i].style.display = "none";
+
+    <script>
+      const showToasts = document.querySelectorAll(".show-toast");
+
+      for (let i = 0; i < showToasts.length; i++) {
+        const clickToast = showToasts[i].querySelector(".click-toast");
+        const viewToast = showToasts[i].querySelector(".view-toast");
+        let timeId
+
+        clickToast.addEventListener("click", () => {
+          viewToast.style.display = "block";
+          timeId = setTimeout(() => {
+            viewToast.style.display = "none";
           }, 5000);
+        })
+
+        viewToast.addEventListener("mouseenter", () => {
+          clearTimeout(timeId);
         });
-        viewToasts[i].addEventListener("mouseenter", () => {
-          clearTimeout(toastClick);
-          clearTimeout(toastLeave);
-        });
-        viewToasts[i].addEventListener("mouseleave", () => {
-          let toastLeave = setTimeout(() => {
-            viewToast[i].style.display = "none";
+
+        viewToast.addEventListener("mouseleave", () => {
+          timeId = setTimeout(() => {
+            viewToast.style.display = "none";
           }, 5000);
         });
       }
     </script>
-  </body>
+</body>
+
 </html>
